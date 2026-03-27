@@ -599,6 +599,8 @@ int reboot3(uint64_t flags, ...);
     }
 }
 
+// disable PAC and PPL bypass checks for testing
+/*
 - (BOOL)isPACBypassRequired
 {
     if (![self isArm64e]) return NO;
@@ -613,6 +615,19 @@ int reboot3(uint64_t flags, ...);
 {
     return [self isArm64e];
 }
+*/
+
+
+- (BOOL)isPACBypassRequired
+{
+    return NO;
+}
+
+- (BOOL)isPPLBypassRequired
+{
+    return NO;
+}
+
 
 - (BOOL)isSupported
 {
