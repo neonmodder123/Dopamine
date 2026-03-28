@@ -80,14 +80,17 @@ typedef NS_ENUM(NSInteger, JBErrorCode) {
             "physmap",
             "struct",
             "physrw",
-            "perfkrw",
+            NULL,
             NULL,
             NULL,
             NULL,
             NULL,
         };
+        uint32_t idx = 6;
 
-        uint32_t idx = 7;
+        if (xpf_set_is_supported("perfkrw")) {
+            sets[idx++] = "perfkrw"; 
+        }
         if (xpf_set_is_supported("devmode")) {
             sets[idx++] = "devmode"; 
         }
